@@ -5,11 +5,11 @@ RUN set -ex \
 
 ENV JAVA_HOME="/opt/graalvm" \
     GRAALVM_HOME="/opt/graalvm" \
-    GRAALVM_VERSION=20.3.0 \
-    GRAALVM_DOWNLOAD_SHA256="557aafd6f4fb8c103ce853adda452a7dc3eeca2ef1af00940b70efafe00fb3d5" \
+    GRAALVM_VERSION=21.3.2 \
+    GRAALVM_DOWNLOAD_SHA256="1332e2716601abea1e05b7b0b1c643740aedc9a6f82f375f5d2afa7e6323c130" \
     MAVEN_HOME="/opt/maven" \
-    MAVEN_VERSION=3.6.3 \
-    MAVEN_DOWNLOAD_SHA512="c35a1803a6e70a126e80b2b3ae33eed961f83ed74d18fcd16909b2d44d7dada3203f1ffe726c17ef8dcca2dcaa9fca676987befeadc9b9f759967a8cb77181c0"
+    MAVEN_VERSION=3.8.6 \
+    MAVEN_DOWNLOAD_SHA512="f790857f3b1f90ae8d16281f902c689e4f136ebe584aba45e4b1fa66c80cba826d3e0e52fdd04ed44b4c66f6d3fe3584a057c26dfcac544a60b301e6d0f91c26"
 
 ARG MAVEN_CONFIG_HOME="/root/.m2"
 
@@ -38,9 +38,9 @@ RUN set -ex \
     && update-alternatives --install /usr/bin/mvn mvn /opt/maven/bin/mvn 10000 \
     && mkdir -p $MAVEN_CONFIG_HOME
 
-RUN set -ex \
-    # Install AWS CLI V2
-    && curl -LSso /var/tmp/awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
-    && unzip -q /var/tmp/awscliv2.zip -d /var/tmp \
-    && ./var/tmp/aws/install -b /usr/bin \
-    && rm /var/tmp/awscliv2.zip
+#RUN set -ex \
+#    # Install AWS CLI V2
+#    && curl -LSso /var/tmp/awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
+#    && unzip -q /var/tmp/awscliv2.zip -d /var/tmp \
+#    && ./var/tmp/aws/install -b /usr/bin \
+#    && rm /var/tmp/awscliv2.zip
