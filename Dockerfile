@@ -1,7 +1,7 @@
 FROM amazonlinux:2
 
 RUN set -ex \
-    && yum install -y gcc glibc-devel zlib-devel tar gzip unzip
+    && yum install -y gcc glibc-devel zlib-devel tar gzip unzip zlib1g-dev libc6-dev
 
 ENV JAVA_HOME="/opt/graalvm" \
     GRAALVM_HOME="/opt/graalvm" \
